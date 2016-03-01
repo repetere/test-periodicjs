@@ -16,7 +16,9 @@
   },
   "dependencies": {
     "fs-extra": "^0.26.5",
+    "npm": "^3.7.5",
     "periodicjs": "^6.5.2",
+    "promisie": "^1.0.4",
     "shelljs": "^0.6.0"
   },
   "description": "An authentication extension for periodicjs that uses passport to authenticate user sessions.",
@@ -76,7 +78,6 @@
   },
   "scripts": {
     "postinstall": "node install.js",
-    "postuninstall": "node uninstall.js",
     "test": "mocha"
   },
   "version": "1.0.0"
