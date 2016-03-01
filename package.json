@@ -15,6 +15,7 @@
     "url": "https://github.com/typesettin/periodicjs.ext.oauth2client/issues"
   },
   "dependencies": {
+    "async": "^1.5.2",
     "fs-extra": "^0.26.5",
     "npm": "^3.7.5",
     "periodicjs": "^6.5.2",
@@ -71,6 +72,9 @@
     }
   ],
   "name": "test-periodicjs",
+  "config":{
+    "skip_post_install":true
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -80,5 +84,5 @@
     "postinstall": "node install.js",
     "test": "mocha"
   },
-  "version": "1.0.0"
+  "version": "6.5.2"
 }
