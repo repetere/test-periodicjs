@@ -42,11 +42,11 @@ const move_array = function (original_array, old_index, new_index) {
   return original_array; // for testing purposes
 };
 
-console.log('node_module_to_test_and_copy',node_module_to_test_and_copy); // /Users/yawetse/Developer/github/test/periodicjs.core.controller
-console.log('test_periodicjs_dir',test_periodicjs_dir); // /Users/yawetse/Developer/github/test/periodicjs.core.controller/node_modules/test-periodicjs/node_modules/periodicjs
-console.log('name_of_module_to_copy',name_of_module_to_copy); // periodicjs.core.controller
-console.log('test_periodicjs_dir_node_modules_dir',test_periodicjs_dir_node_modules_dir); // /Users/yawetse/Developer/github/test/periodicjs.core.controller/node_modules/test-periodicjs/node_modules/periodicjs/node_modules
-console.log('copy_module_to_test_periodicjs_dir_extname',copy_module_to_test_periodicjs_dir_extname); // /Users/yawetse/Developer/github/test/periodicjs.core.controller/node_modules/test-periodicjs/node_modules/periodicjs/node_modules/periodicjs.core.controller
+// console.log('node_module_to_test_and_copy',node_module_to_test_and_copy); // /Users/yawetse/Developer/github/test/periodicjs.core.controller
+// console.log('test_periodicjs_dir',test_periodicjs_dir); // /Users/yawetse/Developer/github/test/periodicjs.core.controller/node_modules/test-periodicjs/node_modules/periodicjs
+// console.log('name_of_module_to_copy',name_of_module_to_copy); // periodicjs.core.controller
+// console.log('test_periodicjs_dir_node_modules_dir',test_periodicjs_dir_node_modules_dir); // /Users/yawetse/Developer/github/test/periodicjs.core.controller/node_modules/test-periodicjs/node_modules/periodicjs/node_modules
+// console.log('copy_module_to_test_periodicjs_dir_extname',copy_module_to_test_periodicjs_dir_extname); // /Users/yawetse/Developer/github/test/periodicjs.core.controller/node_modules/test-periodicjs/node_modules/periodicjs/node_modules/periodicjs.core.controller
 var testperiodic_extension_config = {};
 var npmhelper;
 var processResult = [];
@@ -183,14 +183,12 @@ fs.ensureDirAsync(testPeriodicDir)
 	})
 	.then(extensionDepJson => {
 		//Creates an empty extensions JSON file in the test directory, resolves with the extension configuration JSON data
-		console.log('Creates an empty extensions JSON file in the test directory, resolves with the extension configuration JSON data');
 		return fs.writeJsonAsync(path.join(test_periodicjs_dir, 'content/config/extensions.json'), { extensions: [] })
 			.then(() => extensionDepJson, 
 				e => Promise.reject(e));
 	})
 	.then(extensionDepJson => {
 		//Adds dependencies to an array for later installation
-		console.log('Adds dependencies to an array for later installation');
 			npmhelper = require(path.join(test_periodicjs_dir, 'scripts/npmhelper'))({});
  		if (extensionDepJson && Array.isArray(extensionDepJson.periodicDependencies) && extensionDepJson.periodicDependencies.length) {
  			extensionsToInstall = extensionDepJson.periodicDependencies.reduce((prev, extension) => {
@@ -201,7 +199,6 @@ fs.ensureDirAsync(testPeriodicDir)
  			}, []);
  		}
  		//Removes any unnecessary previously installed extensions
- 		console.log('Removes any unnecessary previously installed extensions');
  		return Promisie.promisify(deleteUnlistedExtensions)();
 	})
 	.then(result => {
@@ -214,18 +211,15 @@ fs.ensureDirAsync(testPeriodicDir)
 			'prefix': test_periodicjs_dir
 		};
 		//Installs dependent extensions
-		console.log('Installs dependent extensions');
 		return Promisie.promisify(runNPMProcessAfterLoad)(npmConfig, npmCommand, extensionsToInstall);
 	})
 	.then(result => {
 		processResult.push(result);
 		//Gets extension config data
-		console.log('Gets extension config data');
 		return fs.readJsonAsync(testperiodic_extension_config_path);
 	})
 	.then(config => {
 		//Sets extension config data to testperiodic_extension_config variable which fixExtensionOrder assumes will be defined
-		console.log('Sets extension config data to testperiodic_extension_config variable which fixExtensionOrder assumes will be defined');
 		testperiodic_extension_config = config;
 		return Promisie.promisify(fixExtensionOrder)();
 	})
