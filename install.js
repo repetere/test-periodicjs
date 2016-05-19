@@ -217,19 +217,6 @@ fs.ensureDirAsync(testPeriodicDir)
 		console.log('Installs dependent extensions');
 		return Promisie.promisify(runNPMProcessAfterLoad)(npmConfig, npmCommand, extensionsToInstall);
 	})
-	// .then(result => {
-	// 	processResult.push(result);
-	// 	let npmCommand = 'install';
-	// 	let npmConfig = {
-	// 		'strict-ssl': false,
-	// 		'save-optional': false,
-	// 		'production': true,
-	// 		'prefix': copy_module_to_test_periodicjs_dir_extname
-	// 	};
-	// 	//Installs periodic extension that is being tested
-	// 	console.log('Installs periodic extension that is being tested');
-	// 	return Promisie.promisify(runNPMProcessAfterLoad)(npmConfig, npmCommand, [copy_module_to_test_periodicjs_dir_extname]);
-	// })
 	.then(result => {
 		processResult.push(result);
 		//Gets extension config data
