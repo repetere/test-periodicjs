@@ -17,9 +17,9 @@
   "dependencies": {
     "async": "^1.5.2",
     "fs-extra": "^0.26.5",
-    "npm": "^3.7.5",
-    "periodicjs": "^6.5.2",
-    "promisie": "^1.0.4",
+    "npm": "^3.8.6",
+    "promisie": "^1.1.1",
+    "semver": "^5.1.0",
     "shelljs": "^0.6.0"
   },
   "description": "An authentication extension for periodicjs that uses passport to authenticate user sessions.",
@@ -49,7 +49,7 @@
     "uglifyify": "^3.0.1"
   },
   "engines": {
-    "node": ">=4.2.x"
+    "node": ">=6.x"
   },
   "homepage": "https://github.com/typesettin/periodicjs.ext.oauth2client",
   "keywords": [
@@ -72,8 +72,8 @@
     }
   ],
   "name": "test-periodicjs",
-  "config":{
-    "skip_post_install":true
+  "config": {
+    "skip_post_install": true
   },
   "license": "MIT",
   "repository": {
@@ -84,5 +84,5 @@
     "postinstall": "node install.js",
     "test": "mocha"
   },
-  "version": "6.5.2"
+  "version": "8.0.70"
 }
