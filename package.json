@@ -84,5 +84,5 @@
     "postinstall": "node install.js",
     "test": "mocha"
   },
-  "version": "8.0.70"
+  "version": "8.30.50"
 }
